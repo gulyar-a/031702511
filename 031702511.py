@@ -1,10 +1,10 @@
-# 031702511# -*- coding: UTF-8 -*-
+# -*- coding: UTF-8 -*-
 
 import re
 import json
 
 # 输入信息
-text = input('请输入信息: ')
+text = input()
 target = text[0]
 
 # 姓名
@@ -14,6 +14,7 @@ name = re.search(r'\w+(?=,)', text).group()
 phone_number = re.search(r'\d{11}', text).group()
 
 #  clear
+text = text.replace('.!', '')
 text = text.replace(phone_number, '')
 text = text.replace(".", "")
 index = text.find(',')
