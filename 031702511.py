@@ -6,6 +6,7 @@ import json
 # 输入信息
 text = input()
 target = text[0]
+text = text.replace(".!", "")
 
 # 姓名
 name = re.search(r'\w+(?=,)', text).group()
@@ -14,7 +15,6 @@ name = re.search(r'\w+(?=,)', text).group()
 phone_number = re.search(r'\d{11}', text).group()
 
 #  clear
-text = text.replace('.!', '')
 text = text.replace(phone_number, '')
 text = text.replace(".", "")
 index = text.find(',')
@@ -93,5 +93,5 @@ answer = []
 answer.append(mydict)
 
 # json格式转换
-f = json.dumps(mydict,ensure_ascii=False)
+f = json.dumps(mydict,ensure_ascii=False, indent=4)
 print(f)
